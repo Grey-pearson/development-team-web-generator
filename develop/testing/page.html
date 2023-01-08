@@ -11,13 +11,24 @@
 </head>
 
 <body>
-    <div id="mainDoc">
+    <div id="mainBody">
         <!-- create template for both the base html plate and the cards for each emplyee -->
         <!-- refrence to go off of just make somehting simple -->
+        <!-- NOTE: cards split into a weird order, its 124,356 might be due to max with style being rem -->
+        <!-- TODO: make cards all aling the mainBody because they sit at the beggining of the box, git custom classes to identify them in js,  -->
         <div class="card-columns">
-            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+            <div class="card text-white border-dark bg-primary mb-3" style="max-width: 18rem;">
                 <div class="card-header">Header</div>
                 <div class="card-body">
+                    <h5 class="card-title">Info card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+            <div class="card bg-info mb-3" style="max-width: 18rem;">
+                <div class="card-header text-light">Header</div>
+                <div class="card-body text-light">
                     <h5 class="card-title">Info card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                         card's
@@ -25,63 +36,25 @@
                 </div>
             </div>
             <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Light card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's
-                        content.</p>
-                </div>
-            </div>
-            <div class="card border-info mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
+                <div class="card-header text-info">Header</div>
                 <div class="card-body text-info">
                     <h5 class="card-title">Info card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    <p class="card-text">Some ;;;;;dlalsddldddldldquick example text to build on the card title and make
+                        up the bulk of the
                         card's
                         content.</p>
-                </div>
-            </div>
-            <div class="card">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
                 </div>
             </div>
         </div>
 
     </div>
     <style>
-
+        #mainBody {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            padding: 10rem;
+        }
     </style>
 </body>
 
