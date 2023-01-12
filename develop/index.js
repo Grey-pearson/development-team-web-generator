@@ -1,11 +1,12 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const manager = require('./lib/manager')
-const engineer = require('./lib/engineer')
-const intern = require('./lib/intern')
+const { employee } = require('./lib/employee.js')
+const manager = require('./lib/manager.js')
+const engineer = require('./lib/engineer.js')
+const intern = require('./lib/intern.js');
+const { finished } = require('stream');
 const prompt = inquirer.createPromptModule();
-
-
+// let HTML
 
 // inquireer prompt for user to pick which role they want to create,
 // options let user pick from manager engineer and intern
@@ -15,58 +16,75 @@ const prompt = inquirer.createPromptModule();
 const managerQuestions = [
     {
         type: 'input',
-        name: 'title?',
-        message: 'whats your name'
+        name: 'title',
+        message: 'whats your name?'
     },
     {
         type: 'input',
         name: 'id',
-        message: 'whats your name'
+        message: 'whats your id?'
     },
     {
         type: 'input',
         name: 'email',
-        message: 'whats your name'
+        message: 'whats your email?'
+    },
+    {
+        type: 'input',
+        name: 'special',
+        message: 'whats your office number?'
     },
 ]
 const engineerQuestions = [
     {
         type: 'input',
-        name: 'title?',
-        message: 'whats your name'
+        name: 'title',
+        message: 'whats your name?'
     },
     {
         type: 'input',
         name: 'id',
-        message: 'whats your name'
+        message: 'whats your id?'
     },
     {
         type: 'input',
         name: 'email',
-        message: 'whats your name'
+        message: 'whats your email?'
+    },
+    {
+        type: 'input',
+        name: 'special',
+        message: 'whats your github username?'
     },
 ]
 const internQuestions = [
     {
         type: 'input',
         name: 'title?',
-        message: 'whats your name'
+        message: 'whats your name?'
     },
     {
         type: 'input',
         name: 'id',
-        message: 'whats your name'
+        message: 'whats your id?'
     },
     {
         type: 'input',
         name: 'email',
-        message: 'whats your name'
+        message: 'whats your email?'
+    },
+    {
+        type: 'input',
+        name: 'special',
+        message: 'whats your shcools name?'
     },
 ]
 const options = [
     {
         type: 'list',
-
+        name: 'role',
+        message: 'what role do you want to do first?',
+        choices: ['manager', 'engineer', 'intern', 'finished']
     }
 ]
 
@@ -103,10 +121,47 @@ const htmlFooter = `
 </html>`
 // will run the main program triggering questions and functions
 function main() {
-    prompt(options).then(
-        // ah idk awnsers prompt(specified option???)
-    );
+    inquirer.prompt(options).then((awnser) => {
+        // console.log(awnser.role)
+        switch (awnser.role) {
+            case 'manager':
+                cardCreator(managerQuestions, manager)
+                break
+            case 'engineer':
+                cardCreator(engineerQuestions, engineer)
+                break
+            case 'intern':
+                cardCreator(internQuestions, intern)
+                break
+            case 'finished':
+                endCall()
+        }
+    })
 }
 // will take awnsers and will create the card element and save it,
 // then will concat to the current portion of the HTML header
-function cardCreator
+function cardCreator(arr, role) {
+    // takes awnsers and fills out the aprptiate role to creat the card then combines them
+    inquirer.prompt(arr).then((awnsers) => {
+        // console.log(awnsers)
+        const user = new role(awnsers.title, awnsers.id, awnsers.email, awnsers.special)
+        // console.log(user.card())
+        let HTML = htmlHeader + user.card()
+        console.log(HTML)
+        main()
+    })
+    // main()
+}
+
+function endCall() {
+    HTML = + htmlFooter
+    console.log(HTML)
+    console.log('ya did it')
+}
+
+main()
+
+// const boss = new manager('1', 2, 'd', 5)
+// console.log(boss.questions)
+// console.log(employee)
+// console.log('employee')
