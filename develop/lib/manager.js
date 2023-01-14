@@ -22,28 +22,6 @@ class manager extends employee {
     </div>
 </div>`
     }
-    questions = [
-        {
-            type: 'input',
-            name: 'title',
-            message: 'whats your name?'
-        },
-        {
-            type: 'input',
-            name: 'id',
-            message: 'whats your id?'
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: 'whats your email?'
-        },
-        {
-            type: 'input',
-            name: 'special',
-            message: 'whats your office number?'
-        },
-    ]
 }
 
 // testing

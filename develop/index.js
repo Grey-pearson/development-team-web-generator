@@ -119,10 +119,12 @@ const htmlFooter = `
 </body>
 
 </html>`
+
 // will run the main program triggering questions and functions
 function main() {
     inquirer.prompt(options).then((awnser) => {
         // console.log(awnser.role)
+        fs.writeFile()
         switch (awnser.role) {
             case 'manager':
                 cardCreator(managerQuestions, manager)
@@ -138,6 +140,7 @@ function main() {
         }
     })
 }
+
 // will take awnsers and will create the card element and save it,
 // then will concat to the current portion of the HTML header
 function cardCreator(arr, role) {
@@ -146,11 +149,11 @@ function cardCreator(arr, role) {
         // console.log(awnsers)
         const user = new role(awnsers.title, awnsers.id, awnsers.email, awnsers.special)
         // console.log(user.card())
-        let HTML = htmlHeader + user.card()
-        console.log(HTML)
+
+        fs.appendFile()
+
         main()
     })
-    // main()
 }
 
 function endCall() {

@@ -22,32 +22,7 @@ class engineer extends employee {
     </div>
 </div>`
     }
-
 }
-
-questions = [
-    {
-        type: 'input',
-        name: 'title',
-        message: 'whats your name?'
-    },
-    {
-        type: 'input',
-        name: 'id',
-        message: 'whats your id?'
-    },
-    {
-        type: 'input',
-        name: 'email',
-        message: 'whats your email?'
-    },
-    {
-        type: 'input',
-        name: 'special',
-        message: 'whats your github username?'
-    },
-]
-
 
 // const fred = new engineer('fred', 2, 'gonk@gonk.com', 'freddyboi')
 // console.log(fred.card())
