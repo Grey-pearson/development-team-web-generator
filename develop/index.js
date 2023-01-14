@@ -104,9 +104,12 @@ const htmlHeader = `
 </head>
 
 <body>
-    <div id="mainBody">`
+    <div id="mainBody">
+        <div class="card-columns">
+    `
 // string for the bottom half of HTML header
 const htmlFooter = `
+        </div>
 </div>
 <style>
     #mainBody {
@@ -118,13 +121,13 @@ const htmlFooter = `
 </style>
 </body>
 
-</html>`
+</html>
+
+`
 
 // will run the main program triggering questions and functions
 function main() {
     inquirer.prompt(options).then((awnser) => {
-        // console.log(awnser.role)
-        fs.writeFile()
         switch (awnser.role) {
             case 'manager':
                 cardCreator(managerQuestions, manager)
@@ -150,19 +153,39 @@ function cardCreator(arr, role) {
         const user = new role(awnsers.title, awnsers.id, awnsers.email, awnsers.special)
         // console.log(user.card())
 
-        fs.appendFile()
+        fs.appendFile(`./dist/${name}.html`, `${user.card()}`, (err) =>
+            console.error(err)
+        )
 
         main()
     })
 }
 
+// to finish the program
 function endCall() {
-    HTML = + htmlFooter
-    console.log(HTML)
-    console.log('ya did it')
+    fs.appendFile(`./dist/${name}.html`, htmlFooter, (err) =>
+        console.error(err)
+    )
 }
 
-main()
+// starting code leading into the main function
+let name
+inquirer.prompt([
+    {
+        type: 'input',
+        name: 'fileName',
+        message: 'what do you want your html file to be called?'
+    }
+]).then((awnser) => {
+    console.log(awnser.fileName)
+    fs.appendFile(`./dist/${awnser.fileName}.html`, htmlHeader, (err) =>
+        err ? console.error(err) : console.log('Commit logged!')
+    )
+    name = awnser.fileName
+    main()
+})
+
+
 
 // const boss = new manager('1', 2, 'd', 5)
 // console.log(boss.questions)

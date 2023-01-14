@@ -12,7 +12,8 @@ class intern extends employee {
         return 'intern'
     }
     card() {
-        return `<div class="card text-white border-dark bg-primary mb-3 manager" style="max-width: 18rem;">
+        return `
+        <div class="card text-white border-dark bg-primary mb-3 manager" style="max-width: 18rem;">
     <h3 class="card-header">${this.name}</h3>
     <div class="card-body">
         <h5 class="card-title">manager</h5>
@@ -20,7 +21,9 @@ class intern extends employee {
         <p class="card-text email">email: ${this.email}</p>
         <p class="card-text github">github: ${this.school}</p>
     </div>
-</div>`
+</div>
+
+`
     }
 }
 
