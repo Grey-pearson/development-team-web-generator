@@ -1,0 +1,7 @@
+{
+    "testAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}
