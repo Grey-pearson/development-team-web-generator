@@ -60,7 +60,7 @@ const engineerQuestions = [
 const internQuestions = [
     {
         type: 'input',
-        name: 'title?',
+        name: 'title',
         message: 'whats your name?'
     },
     {
